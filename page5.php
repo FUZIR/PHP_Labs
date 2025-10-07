@@ -25,6 +25,7 @@ $texts = [
     <link rel="stylesheet" href="styles/index.css">
 </head>
 <body>
+<script src="scripts/editable.js"></script>
 <div class="container">
     <div class="main">
         <div class="content">
