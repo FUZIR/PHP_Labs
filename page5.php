@@ -41,10 +41,12 @@ $texts = [
                     </div>
                 </div>
                 <div class="right-content">
-                    <div class="content-header">
+                    <div class="content-header" data-key="right_header">
                         <?php echo $texts[1];?>
                     </div>
-                    <?php echo $texts[2];?>
+                    <div data-key="right_text">
+                        <?php echo $texts[2];?>
+                    </div>
                 </div>
             </div>
         </div>
