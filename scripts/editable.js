@@ -2,7 +2,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     const startTime = performance.now();
 
     const getElementKey = (el) => {
-        const page = window.location.pathname.split("/").pop() || "index.php";
+        if (el.dataset.key && el.dataset.key.trim() !== "") {
+            return el.dataset.key.trim();
+        }
+
+        const page = window.location.pathname.split("/").pop() || "index";
         const tag = el.tagName.toLowerCase();
         const index = Array.from(document.querySelectorAll(tag)).indexOf(el);
         return `${page}_${tag}_${index}`;
