@@ -27,12 +27,12 @@ $texts = [
 <body>
 <script src="scripts/editable.js"></script>
 <div class="container">
+    <div class="header" style="height: auto; max-height: 25%; overflow: auto; word-wrap: break-word">
+        <h1><?php echo $titleX; ?></h1>
+        <h2><?php echo $titleY; ?></h2>
+    </div>
     <div class="main">
         <div class="content">
-            <div class="header">
-                <h1><?php echo $titleX; ?></h1>
-                <h2><?php echo $titleY; ?></h2>
-            </div>
             <div class="body">
                 <div class="left-content">
                     <?php echo $texts[0];?>
@@ -41,10 +41,10 @@ $texts = [
                     </div>
                 </div>
                 <div class="right-content">
-                    <div class="content-header" data-key="right_header">
+                    <div class="content-header" data-key="right_header" style="height: auto; max-height: 20%; overflow: auto; word-wrap: break-word">
                         <?php echo $texts[1];?>
                     </div>
-                    <div data-key="right_text">
+                    <div data-key="right_text" style="height: auto; max-height: 80%; overflow: auto; word-wrap: break-word">
                         <?php echo $texts[2];?>
                     </div>
                 </div>
