@@ -5,9 +5,6 @@ $titleY = "Варіант №11";
 $menu = [
         "index.php" => "Головна",
         "page2.php" => "Сторінка 2",
-        "page3.php" => "Сторінка 3",
-        "page4.php" => "Сторінка 4",
-        "page5.php" => "Сторінка 5"
 ];
 
 $texts = [
@@ -21,12 +18,16 @@ $texts = [
 <head>
     <meta charset="UTF-8">
     <title><?php echo $titleX; ?> - <?php echo $titleY; ?></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
 <script src="scripts/editable.js"></script>
-<div class="container">
-    <div class="header" style="height: auto; max-height: 25%; overflow: auto; word-wrap: break-word; padding: 12px">
+<script src="scripts/variant.js"></script>
+
+<div class="app-container">
+    <div class="header">
         <h1><?php echo $titleX; ?></h1>
         <h2><?php echo $titleY; ?></h2>
     </div>
@@ -35,15 +36,43 @@ $texts = [
             <div class="body">
                 <div class="left-content">
                     <?php echo $texts[0];?>
-                    <div style="width: 100%; display: flex; justify-content: center">
-                        <img src="images/picture1.jpg" style="max-width: 30vw; max-height: 50vh"/>
+
+                    <div id="variant-builder" style="background: #eef; padding: 10px; border-radius: 5px; margin: 10px 0;">
+                        <h4>Створення об'єктів (Вар. 11)</h4>
+                        <label>Кількість блоків:</label>
+                        <input type="number" id="obj-count" min="1" max="10" value="2" style="width: 50px;">
+                        <button id="btn-generate" class="btn btn-sm btn-primary">Створити поля</button>
+                        <div id="inputs-container" style="margin-top: 10px;"></div>
+                        <button id="btn-save-variant" class="btn btn-success" style="display: none; margin-top: 10px; width: 100%;">Зберегти на сервер</button>
+                    </div>
+                    <div id="carouselExampleSlidesOnly"
+                         class="carousel slide"
+                         data-bs-ride="carousel"
+                         data-bs-interval="3000"
+                         data-bs-wrap="true"
+                         data-bs-pause="false">
+
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="images/picture1.jpg"/>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/picture2.jpg"/>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/picture3.jpg"/>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/picture4.jpg"/>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="right-content">
-                    <div class="content-header" data-key="right_header" style="height: auto; max-height: 20%; overflow: auto; word-wrap: break-word">
+                    <div class="content-header" data-key="right_header">
                         <?php echo $texts[1];?>
                     </div>
-                    <div data-key="right_text" style="height: auto; max-height: 80%; overflow: auto; word-wrap: break-word">
+                    <div data-key="right_text">
                         <?php echo $texts[2];?>
                     </div>
                 </div>

@@ -1,11 +1,23 @@
 document.addEventListener("DOMContentLoaded", async () => {
     const startTime = performance.now();
 
+    const protectedZones = ['#variant-builder', '#variant-display', '#carouselExampleSlidesOnly', '.sidebar'];
+
+    protectedZones.forEach(selector => {
+        const els = document.querySelectorAll(selector); // Используем querySelectorAll на случай классов
+        els.forEach(el => {
+            if (el) {
+                el.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                });
+                el.style.cursor = "default";
+            }
+        });
+    });
     const getElementKey = (el) => {
         if (el.dataset.key && el.dataset.key.trim() !== "") {
             return el.dataset.key.trim();
         }
-
         const page = window.location.pathname.split("/").pop() || "index";
         const tag = el.tagName.toLowerCase();
         const index = Array.from(document.querySelectorAll(tag)).indexOf(el);
@@ -22,14 +34,24 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     document.querySelectorAll("h1, h2, p, div, span").forEach((el) => {
+        if (el.closest('#variant-builder') || el.closest('#variant-display') || el.closest('.sidebar')) return;
+
         const key = getElementKey(el);
         if (savedData[key]) el.innerText = savedData[key];
     });
 
     document.querySelectorAll("h1, h2, p, div, span").forEach((el) => {
-        if (el.querySelector("img") || el.querySelector("li") || el.querySelector("a")) return;
+
+        if (el.closest('#variant-builder') || el.closest('#variant-display') || el.closest('.sidebar')) return;
+
+        if (el.closest('.carousel')) return;
+
+        if (el.querySelector("img") || el.querySelector("input") || el.querySelector("textarea") || el.querySelector("form")) return;
+
+        if (['INPUT', 'TEXTAREA', 'BUTTON', 'SELECT', 'OPTION', 'LABEL'].includes(el.tagName)) return;
 
         el.style.cursor = "pointer";
+
         el.addEventListener("click", (e) => {
             e.stopPropagation();
             if (document.getElementById("editForm")) return;
@@ -86,7 +108,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                 } catch (err) {
                     console.error("Помилка збереження:", err);
                 }
-
                 form.remove();
             });
 
