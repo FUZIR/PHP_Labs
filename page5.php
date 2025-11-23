@@ -27,7 +27,7 @@ $texts = [
 <body>
 <script src="scripts/editable.js"></script>
 <div class="container">
-    <div class="header" style="height: auto; max-height: 25%; overflow: auto; word-wrap: break-word">
+    <div class="header" style="height: auto; max-height: 25%; overflow: auto; word-wrap: break-word; padding: 12px">
         <h1><?php echo $titleX; ?></h1>
         <h2><?php echo $titleY; ?></h2>
     </div>
