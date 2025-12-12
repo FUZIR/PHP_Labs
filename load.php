@@ -3,8 +3,8 @@ header("Content-Type: application/json");
 
 $page = basename(isset($_GET["page"]) ? $_GET["page"] : "index.php");
 
-//$mysqli = new mysqli("sql305.infinityfree.com", "if0_39960025", "Kirlip223223", "if0_39960025_editable_page");
-$mysqli = new mysqli("localhost", "root", "", "editable_page");
+$mysqli = new mysqli("sql305.infinityfree.com", "if0_39960025", "Kirlip223223", "if0_39960025_editable_page");
+//$mysqli = new mysqli("localhost", "root", "", "editable_page");
 $mysqli->set_charset("utf8mb4");
 if ($mysqli->connect_error) {
     http_response_code(500);

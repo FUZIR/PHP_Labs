@@ -2,8 +2,8 @@
 header("Content-Type: application/json");
 $method = $_SERVER['REQUEST_METHOD'];
 
-//$mysqli = new mysqli("sql305.infinityfree.com", "if0_39960025", "Kirlip223223", "if0_39960025_editable_page");
-$mysqli = new mysqli("localhost", "root", "", "editable_page");
+$mysqli = new mysqli("sql305.infinityfree.com", "if0_39960025", "Kirlip223223", "if0_39960025_editable_page");
+//$mysqli = new mysqli("localhost", "root", "", "editable_page");
 $mysqli->set_charset("utf8mb4");
 
 if ($mysqli->connect_error) {

@@ -21,6 +21,7 @@ $texts = [
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles/index.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="scripts/anim.js"></script>
 </head>
 <body>
 <script src="scripts/editable.js"></script>
@@ -45,6 +46,7 @@ $texts = [
                         <div id="inputs-container" style="margin-top: 10px;"></div>
                         <button id="btn-save-variant" class="btn btn-success" style="display: none; margin-top: 10px; width: 100%;">Зберегти на сервер</button>
                     </div>
+
                     <div id="carouselExampleSlidesOnly"
                          class="carousel slide"
                          data-bs-ride="carousel"
@@ -54,16 +56,16 @@ $texts = [
 
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="images/picture1.jpg"/>
+                                <img src="images/picture1.jpg" class="d-block" style="width: 100%; height: 300px; object-fit: contain;"/>
                             </div>
                             <div class="carousel-item">
-                                <img src="images/picture2.jpg"/>
+                                <img src="images/picture2.jpg" class="d-block" style="width: 100%; height: 300px; object-fit: contain;"/>
                             </div>
                             <div class="carousel-item">
-                                <img src="images/picture3.jpg"/>
+                                <img src="images/picture3.jpg" class="d-block" style="width: 100%; height: 300px; object-fit: contain;"/>
                             </div>
                             <div class="carousel-item">
-                                <img src="images/picture4.jpg"/>
+                                <img src="images/picture4.jpg" class="d-block" style="width: 100%; height: 300px; object-fit: contain;"/>
                             </div>
                         </div>
                     </div>
